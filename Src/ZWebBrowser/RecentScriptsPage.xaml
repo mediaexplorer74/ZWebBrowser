@@ -1,0 +1,119 @@
+﻿<Page 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="using:ZWebBrowser" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    x:Class="ZWebBrowser.RecentScriptsPage"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+>
+        <Grid x:Name="LayoutRoot">
+            <ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition />
+                </TransitionCollection>
+            </ChildrenTransitions>
+            <RowDefinitions>
+                <RowDefinitionCollection>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </RowDefinitionCollection>
+            </RowDefinitions>
+            <Children>
+                <UIElementCollection>
+                    <StackPanel Row="0" Margin="19,0,0,0">
+                        <Children>
+                            <UIElementCollection>
+                                <TextBlock Text="Recent Scripts" Margin="0,-6,5,0,0">
+                  <Style>
+                    <ThemeResource ResourceKey="SubheaderTextBlockStyle" />
+                  </Style>
+                  <CharacterSpacing>
+                    <ThemeResource ResourceKey="PivotHeaderItemCharacterSpacing" />
+                  </CharacterSpacing>
+                                </TextBlock>
+                            </UIElementCollection>
+                        </Children>
+                    </StackPanel>
+                    <Grid x:Name="ContentRoot" Row="1" Margin="19,9,5,19,0">
+                        <RowDefinitions>
+                            <RowDefinitionCollection>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </RowDefinitionCollection>
+                        </RowDefinitions>
+                        <Children>
+                            <UIElementCollection>
+                                <Button x:ConnectionId="1"
+                                        x:Name="newScriptBn"
+                                        Row="0" 
+                                        HorizontalAlignment="Right" 
+                                        Content="New" />
+                                
+                                <ListView x:Name="listView" Margin="0,52,0,54" 
+                                          IsItemClickEnabled="False" Row="1">
+                                    <ItemsSource>
+                                        <Binding Path="Items" />
+                                    </ItemsSource>
+                                    <ItemTemplate>
+                                        <DataTemplate>
+                                            <Template>
+                                                <StackPanel Margin="0,0,0,9,5">
+                                                    <Children>
+                                                        <UIElementCollection>
+                                                            <Grid>
+                                                                <ColumnDefinitions>
+                                                                    <ColumnDefinitionCollection>
+                                                                        <ColumnDefinition Width="Auto" />
+                                                                        <ColumnDefinition Width="*" />
+                                                                    </ColumnDefinitionCollection>
+                                                                </ColumnDefinitions>
+                                                                <Children>
+                                                                    <UIElementCollection>
+                                                                        <TextBlock x:Name="titleBlock"
+                                                                                   TextWrapping="Wrap"
+                                                                                   SlideInAnimationGroup="1"
+                                                                                   IsStaggerElement="False" 
+                                                                                   Margin="2,0,0,0" 
+                                                                                   FontFamily="Global User Interface" 
+                                                                                   Column="1">
+                                      <Text>
+                                        <Binding Path="Name" />
+                                      </Text>
+                                      <Style>
+                                        <ThemeResource ResourceKey="ListViewItemContentTextBlockStyle" />
+                                      </Style>
+                                                                        </TextBlock>
+                                                                    </UIElementCollection>
+                                                                </Children>
+                                                            </Grid>
+                                                        </UIElementCollection>
+                                                    </Children>
+                                                </StackPanel>
+                                            </Template>
+                                        </DataTemplate>
+                                    </ItemTemplate>
+                                </ListView>
+                            </UIElementCollection>
+                        </Children>
+                    </Grid>
+                </UIElementCollection>
+            </Children>
+        </Grid>
+</Page>
+
+<!--Page
+    x:Class="ZWebBrowser.RecentScriptsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZWebBrowser"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+    </Grid>
+</Page-->

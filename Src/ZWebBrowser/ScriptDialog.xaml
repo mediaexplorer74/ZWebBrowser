@@ -1,0 +1,71 @@
+﻿<ContentDialog 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="using:ZWebBrowser" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    x:Class="ZWebBrowser.ScriptDialog" 
+    Title="Script" 
+    PrimaryButtonText="Accept" 
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    >
+    
+    <!--Template>
+        <StaticResource ResourceKey="ScrollableContentDialogTemplate" />
+    </Template-->
+    <!--Content-->
+        <Grid>
+            <RowDefinitions>
+                <RowDefinitionCollection>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </RowDefinitionCollection>
+            </RowDefinitions>
+            <ColumnDefinitions>
+                <ColumnDefinitionCollection>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </ColumnDefinitionCollection>
+            </ColumnDefinitions>
+            <Children>
+                <UIElementCollection>
+                    <Button x:ConnectionId="2" x:Name="recentBn" Row="0"
+                            HorizontalAlignment="Left" 
+                            Content="Recent" />
+                    
+                    <Button x:ConnectionId="3" x:Name="embeddedBn" 
+                            Row="0" Column="1" HorizontalAlignment="Left" 
+                            Content="Embedded" Margin="8,0,0,0" />
+                    
+                    <TextBox x:Name="scriptBox" Row="1" ColumnSpan="2" 
+                             Header="Script" 
+                             AcceptsReturn="False"
+                             IsSpellCheckEnabled="True" 
+                             VerticalAlignment="Stretch"
+                             TextWrapping="Wrap"
+                             Margin="0,0,-0,333,0" Text="" />
+                </UIElementCollection>
+            </Children>
+        </Grid>
+    <!--/Content-->
+</ContentDialog>
+
+<!--ContentDialog
+    x:Class="ZWebBrowser.ScriptDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZWebBrowser"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="TITLE"
+    PrimaryButtonText="Button1"
+    SecondaryButtonText="Button2"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+    </Grid>
+</ContentDialog-->

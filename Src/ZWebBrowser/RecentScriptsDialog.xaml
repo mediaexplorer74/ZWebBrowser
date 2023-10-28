@@ -1,0 +1,87 @@
+﻿<ContentDialog 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZWebBrowser" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    x:Class="ZWebBrowser.RecentScriptsDialog" 
+    Title="Recent" 
+    PrimaryButtonText="Accept" 
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    FullSizeDesired="False"
+    >
+    <!--Template>
+        <StaticResource ResourceKey="ScrollableContentDialogTemplate" />
+    </Template-->
+    <!--Content-->
+        <Grid x:Name="LayoutRoot" Margin="0,0,-0,333,0">
+            <RowDefinitions>
+                <RowDefinitionCollection>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </RowDefinitionCollection>
+            </RowDefinitions>
+            <Children>
+                <UIElementCollection>
+                    <ListView x:ConnectionId="2" x:Name="listView" Margin="0,2,0,2" IsItemClickEnabled="False" Row="1">
+                        <ItemsSource>
+                            <Binding Path="Items" />
+                        </ItemsSource>
+                        <ItemTemplate>
+                            <DataTemplate>
+                                <Template>
+                                    <StackPanel Margin="0,0,0,9,5">
+                                        <Children>
+                                            <UIElementCollection>
+                                                <Grid>
+                                                    <ColumnDefinitions>
+                                                        <ColumnDefinitionCollection>
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="*" />
+                                                        </ColumnDefinitionCollection>
+                                                    </ColumnDefinitions>
+                                                    <Children>
+                                                        <UIElementCollection>
+                                                            <TextBlock x:Name="titleBlock" TextWrapping="Wrap" SlideInAnimationGroup="1" IsStaggerElement="False" Margin="2,0,0,0" FontFamily="Global User Interface" Column="1">
+                                <Text>
+                                  <Binding Path="Name" />
+                                </Text>
+                                <Style>
+                                  <ThemeResource ResourceKey="ListViewItemContentTextBlockStyle" />
+                                </Style>
+                                                            </TextBlock>
+                                                        </UIElementCollection>
+                                                    </Children>
+                                                </Grid>
+                                            </UIElementCollection>
+                                        </Children>
+                                    </StackPanel>
+                                </Template>
+                            </DataTemplate>
+                        </ItemTemplate>
+                    </ListView>
+                </UIElementCollection>
+            </Children>
+        </Grid>
+    <!--/Content-->
+</ContentDialog>
+
+<!--ContentDialog
+    x:Class="ZWebBrowser.RecentScriptsDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZWebBrowser"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="TITLE"
+    PrimaryButtonText="Button1"
+    SecondaryButtonText="Button2"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+    </Grid>
+</ContentDialog-->

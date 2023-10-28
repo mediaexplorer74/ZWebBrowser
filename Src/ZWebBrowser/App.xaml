@@ -1,0 +1,174 @@
+﻿<Application
+    x:Class="ZWebBrowser.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="using:ZWebBrowser" 
+>
+    <!--Resources-->
+        <!--ResourceDictionary>
+            <ControlTemplate x:Key="ScrollableContentDialogTemplate" TargetType="ContentDialog">
+                <Template>
+                    <Border x:Name="Container">
+                        <VisualStateGroups>
+                            <VisualStateGroupCollection>
+                                <VisualStateGroup x:Name="Orientation">
+                                    <States>
+                                        <VisualStateCollection>
+                                            <VisualState x:Name="Portrait" />
+                                            <VisualState x:Name="Landscape">
+                                                <DeferredStoryboard>
+                                                    <Storyboard>
+                                                        <Children>
+                                                            <TimelineCollection>
+                                                                <ObjectAnimationUsingKeyFrames TargetProperty="Width" TargetName="ContentPanel" EnableDependentAnimation="False">
+                                                                    <KeyFrames>
+                                                                        <ObjectKeyFrameCollection>
+                                                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                                                <Value>
+                                                                                    <ThemeResource ResourceKey="ContentDialogContentLandscapeWidth" />
+                                                                                </Value>
+                                                                            </DiscreteObjectKeyFrame>
+                                                                        </ObjectKeyFrameCollection>
+                                                                    </KeyFrames>
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                                <ObjectAnimationUsingKeyFrames TargetProperty="HorizontalAlignment" TargetName="ContentPanel">
+                                                                    <KeyFrames>
+                                                                        <ObjectKeyFrameCollection>
+                                                                            <DiscreteObjectKeyFrame KeyTime="0" Value="Left" />
+                                                                        </ObjectKeyFrameCollection>
+                                                                    </KeyFrames>
+                                                                </ObjectAnimationUsingKeyFrames>
+                                                            </TimelineCollection>
+                                                        </Children>
+                                                    </Storyboard>
+                                                </DeferredStoryboard>
+                                            </VisualState>
+                                        </VisualStateCollection>
+                                    </States>
+                                </VisualStateGroup>
+                            </VisualStateGroupCollection>
+                        </VisualStateGroups>
+                        <Child>
+                            <Grid x:Name="LayoutRoot">
+                                <RowDefinitions>
+                                    <RowDefinitionCollection>
+                                        <RowDefinition Height="*" />
+                                    </RowDefinitionCollection>
+                                </RowDefinitions>
+                                <Children>
+                                    <UIElementCollection>
+                                        <Border x:Name="BackgroundElement" FlowDirection="LeftToRight">
+                                            <Background>
+                                                <TemplateBinding Property="Background" />
+                                            </Background>
+                                            <Child>
+                                                <Border>
+                                                    <FlowDirection>
+                                                        <TemplateBinding Property="FlowDirection" />
+                                                    </FlowDirection>
+                                                    <Child>
+                                                        <Grid x:Name="ContentPanel">
+                                                            <RowDefinitions>
+                                                                <RowDefinitionCollection>
+                                                                    <RowDefinition Height="Auto">
+                                                                        <MinHeight>
+                                                                            <ThemeResource ResourceKey="ContentDialogTitleMinHeight" />
+                                                                        </MinHeight>
+                                                                    </RowDefinition>
+                                                                    <RowDefinition Height="*">
+                                                                        <MinHeight>
+                                                                            <ThemeResource ResourceKey="ContentDialogContentMinHeight" />
+                                                                        </MinHeight>
+                                                                    </RowDefinition>
+                                                                    <RowDefinition Height="Auto">
+                                                                        <MinHeight>
+                                                                            <ThemeResource ResourceKey="ContentDialogButtonsMinHeight" />
+                                                                        </MinHeight>
+                                                                    </RowDefinition>
+                                                                </RowDefinitionCollection>
+                                                            </RowDefinitions>
+                                                            <ColumnDefinitions>
+                                                                <ColumnDefinitionCollection>
+                                                                    <ColumnDefinition Width="*" />
+                                                                    <ColumnDefinition Width="*" />
+                                                                </ColumnDefinitionCollection>
+                                                            </ColumnDefinitions>
+                                                            <Children>
+                                                                <UIElementCollection>
+                                                                    <ContentControl x:Name="Title" FontWeight="SemiBold" ColumnSpan="2">
+                                                                        <Margin>
+                                                                            <ThemeResource ResourceKey="ContentDialogTitleMargin" />
+                                                                        </Margin>
+                                                                        <Content>
+                                                                            <TemplateBinding Property="Title" />
+                                                                        </Content>
+                                                                        <ContentTemplate>
+                                                                            <TemplateBinding Property="TitleTemplate" />
+                                                                        </ContentTemplate>
+                                                                        <FontSize>
+                                                                            <StaticResource ResourceKey="TextStyleExtraLargeFontSize" />
+                                                                        </FontSize>
+                                                                        <FontFamily>
+                                                                            <ThemeResource ResourceKey="PhoneFontFamilyNormal" />
+                                                                        </FontFamily>
+                                                                    </ContentControl>
+                                                                    <ContentPresenter x:Name="Content" Row="1" ColumnSpan="2">
+                                                                        <ContentTemplate>
+                                                                            <TemplateBinding Property="ContentTemplate" />
+                                                                        </ContentTemplate>
+                                                                        <Content>
+                                                                            <TemplateBinding Property="Content" />
+                                                                        </Content>
+                                                                        <FontSize>
+                                                                            <StaticResource ResourceKey="TextStyleLargeFontSize" />
+                                                                        </FontSize>
+                                                                        <FontFamily>
+                                                                            <ThemeResource ResourceKey="PhoneFontFamilyNormal" />
+                                                                        </FontFamily>
+                                                                        <Margin>
+                                                                            <ThemeResource ResourceKey="ContentDialogContentMargin" />
+                                                                        </Margin>
+                                                                    </ContentPresenter>
+                                                                    <Border x:Name="Button1Host" Row="2">
+                                                                        <Padding>
+                                                                            <ThemeResource ResourceKey="ContentDialogButton1HostPadding" />
+                                                                        </Padding>
+                                                                    </Border>
+                                                                    <Border x:Name="Button2Host" Row="2" Column="1">
+                                                                        <Padding>
+                                                                            <ThemeResource ResourceKey="ContentDialogButton2HostPadding" />
+                                                                        </Padding>
+                                                                    </Border>
+                                                                </UIElementCollection>
+                                                            </Children>
+                                                        </Grid>
+                                                    </Child>
+                                                </Border>
+                                            </Child>
+                                        </Border>
+                                    </UIElementCollection>
+                                </Children>
+                            </Grid>
+                        </Child>
+                    </Border>
+                </Template>
+            </ControlTemplate>
+            <Style x:Key="CornflowerBlueFlyoutStyle" TargetType="MenuFlyoutPresenter">
+                <Setters>
+                    <SetterBaseCollection>
+                        <Setter Property="BorderBrush" Value="CornflowerBlue" />
+                        <Setter Property="BorderThickness" Value="2" />
+                    </SetterBaseCollection>
+                </Setters>
+            </Style>
+        </ResourceDictionary-->
+    <!--/Resources-->
+</Application>
+
+<!--Application
+    x:Class="ZWebBrowser.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZWebBrowser">
+
+</Application-->

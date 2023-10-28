@@ -1,0 +1,197 @@
+﻿<Page 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="using:ZWebBrowser" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    x:Class="ZWebBrowser.ContentViewerPage"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
+   
+    <!--Resources-->
+        <ResourceDictionary>
+            <MenuFlyout x:Key="ContentItemMenuFlyout">
+                <MenuFlyoutPresenterStyle>
+                    <Style TargetType="MenuFlyoutPresenter">
+                        <Setters>
+                            <SetterBaseCollection>
+                                <Setter Property="BorderBrush" Value="CornflowerBlue" />
+                                <Setter Property="BorderThickness" Value="2" />
+                            </SetterBaseCollection>
+                        </Setters>
+                    </Style>
+                </MenuFlyoutPresenterStyle>
+                <Items>
+                    <MenuFlyoutItemBaseCollection>
+                        <MenuFlyoutItem x:ConnectionId="1" Text="Edit in Text" Tag="ViewText">
+                            <DataContext>
+                                <Binding />
+                            </DataContext>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem x:ConnectionId="2" Text="Browse" Tag="Browse">
+                            <DataContext>
+                                <Binding />
+                            </DataContext>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem x:ConnectionId="3" Text="Open With..." Tag="OpenWith">
+                            <DataContext>
+                                <Binding />
+                            </DataContext>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem x:ConnectionId="4" Text="Rename" Tag="Rename">
+                            <DataContext>
+                                <Binding />
+                            </DataContext>
+                        </MenuFlyoutItem>
+                    </MenuFlyoutItemBaseCollection>
+                </Items>
+            </MenuFlyout>
+        </ResourceDictionary>
+    <!--/Resources-->
+    
+    <BottomAppBar>
+        <CommandBar>
+            <SecondaryCommands>
+                <CommandBarElementCollection>
+                    <AppBarButton x:ConnectionId="5" x:Name="appBarDelete" Label="Delete" />
+                    <AppBarButton x:ConnectionId="6" x:Name="appBarCompress" Label="Zip files" />
+                    <AppBarButton x:ConnectionId="7" x:Name="appBarShare" Label="Share" />
+                </CommandBarElementCollection>
+            </SecondaryCommands>
+            <PrimaryCommands>
+                <CommandBarElementCollection>
+                    <AppBarButton x:ConnectionId="8" x:Name="appBarReload" Icon="Refresh" Label="Refresh" />
+                    <AppBarButton x:ConnectionId="9" x:Name="appBarView" Icon="ViewAll" Label="View" />
+                    <AppBarButton x:ConnectionId="10" x:Name="appBarMulSel" Icon="Bullets" Label="Select" />
+                </CommandBarElementCollection>
+            </PrimaryCommands>
+        </CommandBar>
+    </BottomAppBar>
+    
+    <!--Content-->
+        <Grid x:Name="LayoutRoot">
+            <ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition />
+                </TransitionCollection>
+            </ChildrenTransitions>
+            <RowDefinitions>
+                <RowDefinitionCollection>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </RowDefinitionCollection>
+            </RowDefinitions>
+            <Children>
+                <UIElementCollection>
+                    <StackPanel Row="0" Margin="19,0,0,0">
+                        <Children>
+                            <UIElementCollection>
+                                <TextBlock Text="Content List" Margin="0,-6,5,0,0">
+                  <Style>
+                    <ThemeResource ResourceKey="SubheaderTextBlockStyle" />
+                  </Style>
+                  <CharacterSpacing>
+                    <ThemeResource ResourceKey="PivotHeaderItemCharacterSpacing" />
+                  </CharacterSpacing>
+                                </TextBlock>
+                            </UIElementCollection>
+                        </Children>
+                    </StackPanel>
+                    <Grid x:Name="ContentRoot" Row="1" Margin="19,9,5,19,0">
+                        <Children>
+                            <UIElementCollection>
+                                <ProgressRing x:Name="progressRing" />
+                                <Grid>
+                                    <RowDefinitions>
+                                        <RowDefinitionCollection>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                        </RowDefinitionCollection>
+                                    </RowDefinitions>
+                                    <Children>
+                                        <UIElementCollection>
+                                            <TextBox x:ConnectionId="11" x:Name="filterBox" Row="0" VerticalAlignment="Top" IsSpellCheckEnabled="True" />
+                                            <ListView x:ConnectionId="12" x:Name="listView" Row="1" Margin="0,2,0,2" IsItemClickEnabled="False">
+                                                <ItemsSource>
+                                                    <Binding Path="Items" />
+                                                </ItemsSource>
+                                                <ItemContainerStyle>
+                                                    <Style TargetType="ListViewItem">
+                                                        <Setters>
+                                                            <SetterBaseCollection>
+                                                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                                            </SetterBaseCollection>
+                                                        </Setters>
+                                                    </Style>
+                                                </ItemContainerStyle>
+                                                <ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Template>
+                                                            <StackPanel x:ConnectionId="13" Margin="0,0,0,9,5">
+                                                                <Visibility>
+                                                                    <Binding Path="Visibility" />
+                                                                </Visibility>
+                                                                <AttachedFlyout>
+                                                                    <StaticResource ResourceKey="ContentItemMenuFlyout" />
+                                                                </AttachedFlyout>
+                                                                <Children>
+                                                                    <UIElementCollection>
+                                                                        <Grid>
+                                                                            <ColumnDefinitions>
+                                                                                <ColumnDefinitionCollection>
+                                                                                    <ColumnDefinition Width="Auto" />
+                                                                                    <ColumnDefinition Width="*" />
+                                                                                </ColumnDefinitionCollection>
+                                                                            </ColumnDefinitions>
+                                                                            <Children>
+                                                                                <UIElementCollection>
+                                                                                    <Image Width="60" Height="60">
+                                                                                        <Source>
+                                                                                            <Binding Path="ImagePath" />
+                                                                                        </Source>
+                                                                                    </Image>
+                                                                                    <TextBlock x:Name="titleBlock" TextWrapping="Wrap" SlideInAnimationGroup="1" IsStaggerElement="False" Margin="2,0,0,0" FontFamily="Global User Interface" Column="1">
+                                            <Text>
+                                              <Binding Path="Title" />
+                                            </Text>
+                                            <Style>
+                                              <ThemeResource ResourceKey="ListViewItemContentTextBlockStyle" />
+                                            </Style>
+                                                                                    </TextBlock>
+                                                                                </UIElementCollection>
+                                                                            </Children>
+                                                                        </Grid>
+                                                                    </UIElementCollection>
+                                                                </Children>
+                                                            </StackPanel>
+                                                        </Template>
+                                                    </DataTemplate>
+                                                </ItemTemplate>
+                                            </ListView>
+                                        </UIElementCollection>
+                                    </Children>
+                                </Grid>
+                            </UIElementCollection>
+                        </Children>
+                    </Grid>
+                </UIElementCollection>
+            </Children>
+        </Grid>
+    <!--/Content-->
+</Page>
+
+<!--Page
+    x:Class="ZWebBrowser.ContentViewerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZWebBrowser"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+    </Grid>
+</Page-->

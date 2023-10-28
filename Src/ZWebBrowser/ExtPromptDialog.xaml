@@ -1,0 +1,43 @@
+﻿<ContentDialog 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:local="using:ZWebBrowser" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    x:Class="ZWebBrowser.ExtPromptDialog"
+    
+    mc:Ignorable="d"
+   
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    Title="Open" 
+    PrimaryButtonText="Accept" 
+    SecondaryButtonText="Cancel">
+    
+    <Grid>
+        <!--StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch"-->
+            <!--Children-->
+                <!--UIElementCollection-->
+                    <TextBox x:Name="extBox" Header="Open with ext" IsSpellCheckEnabled="True" />
+                <!--/UIElementCollection-->
+            <!--/Children-->
+        <!--/StackPanel-->
+    </Grid>
+</ContentDialog>
+<!--ContentDialog
+    x:Class="ZWebBrowser.ExtPromptDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZWebBrowser"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="TITLE"
+    PrimaryButtonText="Button1"
+    SecondaryButtonText="Button2"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+    </Grid>
+</ContentDialog-->

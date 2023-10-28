@@ -1,0 +1,53 @@
+﻿<ContentDialog 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZWebBrowser" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    x:Class="ZWebBrowser.UrlDialog" 
+    Title="Go to" 
+    PrimaryButtonText="Accept" 
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    >
+    <Grid>
+        <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Children>
+                <UIElementCollection>
+                    <Grid VerticalAlignment="Top">
+                        <RowDefinitions>
+                            <RowDefinitionCollection>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </RowDefinitionCollection>
+                        </RowDefinitions>
+                        <Children>
+                            <UIElementCollection>
+                                <TextBox x:Name="url" Row="0" Header="address" IsSpellCheckEnabled="True" InputScope="Url" />
+                            </UIElementCollection>
+                        </Children>
+                    </Grid>
+                </UIElementCollection>
+            </Children>
+        </StackPanel>
+    </Grid>
+</ContentDialog>
+
+<!--ContentDialog
+    x:Class="ZWebBrowser.UrlDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZWebBrowser"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="TITLE"
+    PrimaryButtonText="Button1"
+    SecondaryButtonText="Button2"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+    </Grid>
+</ContentDialog-->
